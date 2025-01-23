@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: my-project # Name of the project
+  namespace: argocd # Namespace where ArgoCD is installed
+spec:
+  description: "Project restricted to the demo-namespace"
+  sourceRepos:
+    - https://github.com/NikolaosEfthymiou/argocd-example.git # Allowed Git repositories
+  destinations:
+    - namespace: demo-namespace  # Restrict to the 'demo-namespace'
+      server: '*'                # Allow deployment to all clusters (adjust if needed)
+  clusterResourceWhitelist:
+    - group: '*'                 # Allow all cluster-scoped resources
+      kind: '*'
+  namespaceResourceWhitelist:
+    - group: '*'                 # Allow all namespace-scoped resources
+      kind: '*'
