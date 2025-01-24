@@ -1,0 +1,10 @@
+# nginx-chart/values.yaml
+replicaCount: 1
+image:
+  repository: nginx
+  tag: "1.19.6"
+  pullPolicy: IfNotPresent
+service:
+  type: ClusterIP
+  port: 80
+resources: {}
