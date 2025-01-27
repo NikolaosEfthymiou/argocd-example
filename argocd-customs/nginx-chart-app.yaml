@@ -1,0 +1,27 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: my-helm-app
+  namespace: argocd
+spec:
+  project: my-project
+  source:
+    repoURL: https://github.com/NikolaosEfthymiou/argocd-example.git  # The Git repository URL
+    targetRevision: main                               # The branch, tag, or commit
+    path: nginx-chart                                  # Path to the Helm chart in the repo
+#    helm:
+#      valueFiles:                                     # Optional: Override values.yaml
+#        - values.yaml
+#        - custom-values.yaml
+#      parameters:                                     # Optional: Pass individual Helm parameters
+#        - name: replicaCount
+#          value: "2"
+#        - name: image.tag
+#          value: "v1.0.0"
+  destination:
+    server: https://kubernetes.default.svc           # Kubernetes API server
+    namespace: demo-namespace                               # Target namespace
+#  syncPolicy:                                        # Optional: Sync policies
+#    automated:
+#      prune: true
+#      selfHeal: true
