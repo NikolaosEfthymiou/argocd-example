@@ -11,7 +11,7 @@ spec:
     path: nginx-chart                                  # Path to the Helm chart in the repo
     helm:
       valueFiles:                                     # Optional: Override values.yaml
-        - service-values/myservice1.yaml
+        - ../services-values/myservice1.yaml
 #        - custom-values.yaml
 #      parameters:                                     # Optional: Pass individual Helm parameters
 #        - name: replicaCount
