@@ -4,16 +4,16 @@ kind: Deployment
 metadata:
   name: {{ .Values.labels.name }}
   labels:
-    app: {{ .Values.labels.app }}
+    service: {{ .Values.labels.service }}
 spec:
   replicas: {{ .Values.replicaCount }}
   selector:
     matchLabels:
-      app: {{ .Values.labels.app }}
+      service: {{ .Values.labels.service }}
   template:
     metadata:
       labels:
-        app: {{ .Values.labels.app }}
+        service: {{ .Values.labels.service }}
     spec:
       containers:
         - name: {{ .Values.labels.name }}

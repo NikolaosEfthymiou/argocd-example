@@ -4,11 +4,11 @@ kind: Service
 metadata:
   name: {{ .Values.labels.name }}
   labels:
-    app: {{ .Values.labels.app }}
+    app: {{ .Values.labels.service }}
 spec:
   type: {{ .Values.service.type }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: 80
   selector:
-    app: {{ .Values.labels.app }}
+    app: {{ .Values.labels.service }}
