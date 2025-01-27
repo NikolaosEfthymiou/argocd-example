@@ -1,3 +1,6 @@
+image:
+  repository: nginx
+  tag: "1.26.2"
 labels:
   service: myservice2
   name: myservice2
